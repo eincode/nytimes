@@ -3,7 +3,7 @@ import { Alert } from "react-native"
 
 const getBooksByListName = async (
   listName: string,
-): Promise<Books[] | null> => {
+): Promise<BookResult[] | null> => {
   try {
     const { data } = await api.get<BooksResponse>("/books/v3/lists.json", {
       params: {

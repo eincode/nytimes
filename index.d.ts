@@ -35,9 +35,15 @@ interface BookDetail {
   primary_isbn13: string
 }
 
-interface Books {
+interface ISBN {
+  isbn10: string
+  isbn13: string
+}
+
+interface BookResult {
   amazon_product_url: string
   book_details: BookDetail[]
+  isbns: ISBN[]
 }
 
 interface BooksResponse {
@@ -45,5 +51,5 @@ interface BooksResponse {
   copyright: string
   num_results: number
   last_modified: Date
-  results: Books[]
+  results: BookResult[]
 }

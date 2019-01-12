@@ -10,7 +10,7 @@ import {
 import metrics from "../../../config/metrics"
 
 interface IProps extends TouchableOpacityProps {
-  book: BookDetail
+  book: BookResult
 }
 
 export default (props: IProps) => (
@@ -18,7 +18,9 @@ export default (props: IProps) => (
     <Image
       source={{
         uri: `https://s1.nyt.com/du/books/images/${
-          props.book.primary_isbn13
+          props.book.isbns[0]
+            ? props.book.isbns[0].isbn13
+            : props.book.book_details[0].primary_isbn13
         }.jpg`,
       }}
       style={styles.image}
@@ -26,19 +28,21 @@ export default (props: IProps) => (
     />
     <View style={styles.contentContainer}>
       <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-        {props.book.title}
+        {props.book.book_details[0].title}
       </Text>
       <Text style={{ color: "grey", fontSize: 12 }}>
-        by {props.book.author}
+        by {props.book.book_details[0].author}
       </Text>
-      <Text style={{ marginTop: 10 }}>{props.book.description}</Text>
+      <Text style={{ marginTop: 10 }}>
+        {props.book.book_details[0].description}
+      </Text>
     </View>
   </TouchableOpacity>
 )
 
 const styles = StyleSheet.create({
   container: {
-    width: metrics.DEVICE_WIDTH * 0.4,
+    maxWidth: metrics.DEVICE_WIDTH * 0.45,
     backgroundColor: "white",
     shadowOffset: {
       width: 0,
@@ -50,10 +54,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     minHeight: 200,
+    flex: 1,
+    margin: 10,
   },
 
   image: {
-    width: metrics.DEVICE_WIDTH * 0.4,
+    width: metrics.DEVICE_WIDTH * 0.45,
     height: 200,
     position: "absolute",
   },
