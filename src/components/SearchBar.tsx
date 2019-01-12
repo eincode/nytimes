@@ -13,14 +13,14 @@ import IC_SEARCH from "../../assets/ic_search.png"
 export default (props: TextInputProps) => (
   <View style={styles.container}>
     <Image source={IC_SEARCH} style={styles.icon} />
-    <TextInput {...props} />
+    <TextInput {...props} underlineColorAndroid={"transparent"} />
   </View>
 )
 
 const styles = StyleSheet.create({
   container: {
     width: metrics.DEVICE_WIDTH,
-    height: 50,
+    height: 60,
     backgroundColor: "#FFF",
     padding: 10,
     alignItems: "center",

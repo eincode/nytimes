@@ -44,7 +44,10 @@ export default class Articles extends Component<IProps, IState> {
   public render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor={"#2b98f0"} barStyle={"light-content"} />
+        <StatusBar
+          backgroundColor={metrics.PRIMARY_COLOR}
+          barStyle={"light-content"}
+        />
         <SearchBar
           placeholder={"Type and hit enter"}
           onChangeText={(value) => this.setState({ query: value })}
@@ -58,6 +61,7 @@ export default class Articles extends Component<IProps, IState> {
             extraData={this.state}
             style={{ width: metrics.DEVICE_WIDTH }}
             contentContainerStyle={{ alignItems: "center" }}
+            keyExtractor={(item) => item._id}
             renderItem={({ item }: { item: Article }) => (
               <ArticleItem
                 article={item}
