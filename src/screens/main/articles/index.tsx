@@ -1,23 +1,71 @@
 import React, { Component } from "react"
-import { View, StyleSheet, Text, StatusBar } from "react-native"
+import {
+  View,
+  StyleSheet,
+  Text,
+  StatusBar,
+  FlatList,
+  ActivityIndicator,
+} from "react-native"
 import SearchBar from "../../../components/SearchBar"
 import ArticleItem from "./ArticleItem"
 import { NavigationScreenProp } from "react-navigation"
+
+import { searchArticle } from "../../../controllers/article"
+import metrics from "../../../config/metrics"
 
 interface IProps {
   navigation: NavigationScreenProp<any, any>
 }
 
-export default class Articles extends Component<IProps> {
+interface IState {
+  isLoadingArticle: boolean
+  query: string
+  articles: Article[] | null
+}
+
+export default class Articles extends Component<IProps, IState> {
+  public state = {
+    isLoadingArticle: false,
+    query: "",
+    articles: [],
+  }
+
+  public componentDidMount() {
+    this.searchArticle("trump")
+  }
+
+  public async searchArticle(query: string): Promise<void> {
+    this.setState({ isLoadingArticle: true })
+    const articles = await searchArticle(query)
+    this.setState({ articles, isLoadingArticle: false })
+  }
+
   public render() {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor={"#2b98f0"} barStyle={"light-content"} />
         <SearchBar placeholder={"Type and hit enter"} />
-        <ArticleItem
-          article={dummy}
-          onPress={() => this.props.navigation.navigate("DetailArticle")}
-        />
+        {this.state.isLoadingArticle ? (
+          <ActivityIndicator />
+        ) : (
+          <FlatList
+            data={this.state.articles}
+            extraData={this.state}
+            style={{ width: metrics.DEVICE_WIDTH }}
+            contentContainerStyle={{ alignItems: "center" }}
+            renderItem={({ item }: { item: Article }) => (
+              <ArticleItem
+                article={item}
+                onPress={() =>
+                  this.props.navigation.navigate("DetailArticle", {
+                    url: item.web_url,
+                  })
+                }
+              />
+            )}
+          />
+        )}
       </View>
     )
   }
@@ -29,19 +77,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 })
-
-const dummy: Article = {
-  _id: "lala",
-  headline: {
-    main: "Trump is dead",
-  },
-  multimedia: [
-    {
-      url:
-        "https://static01.nyt.com/images/2018/12/07/opinion/07eisenWeb/merlin_147847134_4e4c9709-c7fb-4e71-bbb5-86fccaa7ad3d-articleLarge.jpg",
-    },
-  ],
-  snippet: "He is really dead",
-  source: "The New York Times",
-  web_url: "https://google.com/",
-}

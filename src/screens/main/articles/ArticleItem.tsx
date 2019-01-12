@@ -17,7 +17,11 @@ interface IProps extends TouchableOpacityProps {
 export default (props: IProps) => (
   <TouchableOpacity style={styles.container} {...props}>
     <ImageBackground
-      source={{ uri: props.article.multimedia[0].url }}
+      source={{
+        uri: props.article.multimedia[0]
+          ? props.article.multimedia[0].url
+          : "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+      }}
       style={styles.image}
       resizeMode={"cover"}
     >
@@ -44,6 +48,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     minHeight: 220,
+    marginVertical: 5,
   },
 
   image: {

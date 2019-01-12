@@ -1,16 +1,30 @@
 import api from "../service/api"
 import { Alert } from "react-native"
 
-const searchArticle = async (query: string): Promise<Article | null> => {
+const searchArticle = async (query: string): Promise<Article[] | null> => {
   try {
-    const { data } = await api.get<Article>("/search/v2/articlesearch.json", {
-      params: {
-        q: query,
+    const { data } = await api.get<ArticleSearchResponse>(
+      "/search/v2/articlesearch.json",
+      {
+        params: {
+          q: query,
+        },
       },
-    })
-    return data
+    )
+    if (data.status === "OK") {
+      return data.response.docs.map((article) => {
+        article.multimedia[0].url = `https://static01.nyt.com/${
+          article.multimedia[0].url
+        }`
+        return article
+      })
+    } else {
+      throw Error(data.status)
+    }
   } catch (err) {
     Alert.alert("Error", err.message)
     return null
   }
 }
+
+export { searchArticle }
