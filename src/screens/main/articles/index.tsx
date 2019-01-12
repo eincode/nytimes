@@ -7,15 +7,22 @@ import {
   ActivityIndicator,
   Text,
   TouchableOpacity,
+  Image,
 } from "react-native"
 import SearchBar from "../../../components/SearchBar"
 import ArticleItem from "./ArticleItem"
-import { NavigationScreenProp } from "react-navigation"
+import {
+  NavigationScreenProp,
+  NavigationTabScreenOptions,
+} from "react-navigation"
 import Modal from "react-native-modal"
 
 import { searchArticle } from "../../../controllers/article"
 import metrics from "../../../config/metrics"
 import SortButton from "./SortButton"
+
+import IC_ARTICLE_ACTIVE from "../../../../assets/ic_article_active.png"
+import IC_ARTICLE_INACTIVE from "../../../../assets/ic_article_inactive.png"
 
 interface IProps {
   navigation: NavigationScreenProp<any, any>
@@ -36,6 +43,29 @@ enum SortMethod {
 }
 
 export default class Articles extends Component<IProps, IState> {
+  public static navigationOptions: NavigationTabScreenOptions = {
+    tabBarIcon: ({ focused }) => {
+      switch (focused) {
+        case true:
+          return (
+            <Image
+              source={IC_ARTICLE_ACTIVE}
+              style={{ height: 20, width: 20 }}
+              resizeMode={"contain"}
+            />
+          )
+        case false:
+          return (
+            <Image
+              source={IC_ARTICLE_INACTIVE}
+              style={{ height: 20, width: 20 }}
+              resizeMode={"contain"}
+            />
+          )
+      }
+    },
+  }
+
   public state = {
     isLoadingArticle: false,
     query: "trump",
