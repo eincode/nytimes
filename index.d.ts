@@ -1,14 +1,14 @@
-interface Article {
+interface ArticleSearchResponse {
   status: string
   copyright: string
   response: Response
 }
 
 interface Response {
-  docs: Doc[]
+  docs: Article[]
 }
 
-interface Doc {
+interface Article {
   web_url: string
   snippet: string
   source: string

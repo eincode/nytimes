@@ -7,6 +7,7 @@ import {
 
 import Articles from "./src/screens/main/articles"
 import Books from "./src/screens/main/books"
+import DetailArticle from "./src/screens/detailArticle"
 
 const MainTabNavigator = createBottomTabNavigator({
   Articles: { screen: Articles },
@@ -22,6 +23,7 @@ const AppNavigator = createAppContainer(
           title: "NY Times",
         },
       },
+      DetailArticle: { screen: DetailArticle },
     },
     {
       defaultNavigationOptions: {

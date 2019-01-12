@@ -1,14 +1,16 @@
-import React, { Component } from "react"
-import { View, StyleSheet, TextInput, Image } from "react-native"
+import React from "react"
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  Image,
+  TextInputProps,
+} from "react-native"
 import metrics from "../config/metrics"
 
 import IC_SEARCH from "../../assets/ic_search.png"
 
-interface IProps {
-  placeholder: string
-}
-
-export default (props: IProps) => (
+export default (props: TextInputProps) => (
   <View style={styles.container}>
     <Image source={IC_SEARCH} style={styles.icon} />
     <TextInput placeholder={props.placeholder} />
@@ -25,7 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderWidth: 1,
     borderColor: metrics.BORDER_COLOR,
-    marginBottom: 20,
   },
 
   icon: {
