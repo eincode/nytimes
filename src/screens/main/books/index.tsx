@@ -1,16 +1,11 @@
 import React, { Component } from "react"
 import { View, StyleSheet, Text } from "react-native"
-import { NavigationStackScreenOptions } from "react-navigation"
 
-export default class Main extends Component {
-  public static navigationOptions: NavigationStackScreenOptions = {
-    title: "NYTimes",
-  }
-
+export default class Books extends Component {
   public render() {
     return (
       <View style={styles.container}>
-        <Text>Main</Text>
+        <Text>Book</Text>
       </View>
     )
   }
