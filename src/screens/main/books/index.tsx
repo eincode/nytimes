@@ -96,13 +96,14 @@ export default class Books extends Component<any, IState> {
           ▼
         </Text>
         {this.state.isLoadingBooks ? (
-          <ActivityIndicator />
+          <ActivityIndicator style={{ marginTop: 10 }} />
         ) : (
           <FlatList
             data={this.state.books}
             extraData={this.state}
             numColumns={2}
             style={{ flex: 1 }}
+            keyExtractor={(item) => item.book_details[0].primary_isbn13}
             contentContainerStyle={{
               justifyContent: "space-evenly",
             }}
