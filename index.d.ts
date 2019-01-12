@@ -24,3 +24,5 @@ interface Headline {
 interface Multimedia {
   url: string
 }
+
+declare module "*.png"
