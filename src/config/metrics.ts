@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native"
+import { Platform, Dimensions } from "react-native"
 
 const { width, height } = Dimensions.get("window")
 
@@ -8,4 +8,5 @@ export default {
   BORDER_COLOR: "#EFEFEF",
   DEVICE_WIDTH: width,
   DEVICE_HEIGHT: height,
+  OS: Platform.OS,
 }

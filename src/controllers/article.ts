@@ -1,14 +1,26 @@
 import api from "../service/api"
 import { Alert } from "react-native"
 
-const searchArticle = async (query: string): Promise<Article[] | null> => {
+interface IParams {
+  q: string
+  sort?: string
+}
+
+const searchArticle = async (
+  query: string,
+  sortMethod?: string,
+): Promise<Article[] | null> => {
+  const params: IParams = {
+    q: query,
+  }
+  if (sortMethod !== "default") {
+    params.sort = sortMethod
+  }
   try {
     const { data } = await api.get<ArticleSearchResponse>(
       "/search/v2/articlesearch.json",
       {
-        params: {
-          q: query,
-        },
+        params,
       },
     )
     if (data.status === "OK") {
