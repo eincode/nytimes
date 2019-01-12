@@ -13,9 +13,11 @@ const searchArticle = async (query: string): Promise<Article[] | null> => {
     )
     if (data.status === "OK") {
       return data.response.docs.map((article) => {
-        article.multimedia[0].url = `https://static01.nyt.com/${
-          article.multimedia[0].url
-        }`
+        if (article.multimedia[0]) {
+          article.multimedia[0].url = `https://static01.nyt.com/${
+            article.multimedia[0].url
+          }`
+        }
         return article
       })
     } else {

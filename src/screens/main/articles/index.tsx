@@ -45,7 +45,11 @@ export default class Articles extends Component<IProps, IState> {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor={"#2b98f0"} barStyle={"light-content"} />
-        <SearchBar placeholder={"Type and hit enter"} />
+        <SearchBar
+          placeholder={"Type and hit enter"}
+          onChangeText={(value) => this.setState({ query: value })}
+          onSubmitEditing={() => this.searchArticle(this.state.query)}
+        />
         {this.state.isLoadingArticle ? (
           <ActivityIndicator />
         ) : (

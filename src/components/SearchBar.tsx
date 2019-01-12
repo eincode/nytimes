@@ -13,7 +13,7 @@ import IC_SEARCH from "../../assets/ic_search.png"
 export default (props: TextInputProps) => (
   <View style={styles.container}>
     <Image source={IC_SEARCH} style={styles.icon} />
-    <TextInput placeholder={props.placeholder} />
+    <TextInput {...props} />
   </View>
 )
 
