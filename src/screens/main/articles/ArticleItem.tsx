@@ -1,8 +1,7 @@
-import React from "react"
+import React, { StatelessComponent } from "react"
 import {
   TouchableOpacity,
   StyleSheet,
-  Image,
   Text,
   TouchableOpacityProps,
   View,
@@ -11,25 +10,25 @@ import {
 import metrics from "../../../config/metrics"
 
 interface IProps extends TouchableOpacityProps {
-  article: Article
+  article?: Article
 }
 
-export default (props: IProps) => (
+const ArticleItem: StatelessComponent<IProps> = (props: IProps) => (
   <TouchableOpacity style={styles.container} {...props}>
     <ImageBackground
       source={{
-        uri: props.article.multimedia[0]
-          ? props.article.multimedia[0].url
+        uri: props.article!.multimedia[0]
+          ? props.article!.multimedia[0].url
           : "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
       }}
       style={styles.image}
       resizeMode={"cover"}
     >
-      <Text style={styles.headline}>{props.article.headline.main}</Text>
+      <Text style={styles.headline}>{props.article!.headline.main}</Text>
     </ImageBackground>
     <View style={styles.contentContainer}>
-      <Text style={styles.source}>{props.article.source}</Text>
-      <Text>{props.article.snippet}</Text>
+      <Text style={styles.source}>{props.article!.source}</Text>
+      <Text>{props.article!.snippet}</Text>
     </View>
   </TouchableOpacity>
 )
@@ -79,3 +78,23 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 })
+
+ArticleItem.defaultProps = {
+  article: {
+    web_url: "https://nytimes.com",
+    snippet: "article_snippet",
+    source: "article_source",
+    multimedia: [
+      {
+        url:
+          "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+      },
+    ],
+    headline: {
+      main: "article_headline",
+    },
+    _id: "article_id",
+  },
+}
+
+export default ArticleItem
