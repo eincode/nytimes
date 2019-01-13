@@ -12,7 +12,7 @@ const wrapper = shallow<Index>(<Index />)
 describe("Article screen", () => {
   it("Successfully fetched data and changed state", async () => {
     await wrapper.instance().searchArticle("")
-    expect(Array.isArray(wrapper.state().articles)).toEqual(true)
+    expect(Array.isArray(wrapper.instance().state.articles)).toEqual(true)
   })
 })
 

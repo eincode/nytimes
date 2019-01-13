@@ -1,4 +1,4 @@
-import React from "react"
+import React, { StatelessComponent } from "react"
 import {
   TouchableOpacity,
   View,
@@ -10,17 +10,17 @@ import {
 import metrics from "../../../config/metrics"
 
 interface IProps extends TouchableOpacityProps {
-  book: BookResult
+  book?: BookResult
 }
 
-export default (props: IProps) => (
+const BookItem: StatelessComponent<IProps> = (props: IProps) => (
   <TouchableOpacity {...props} style={styles.container}>
     <Image
       source={{
         uri: `https://s1.nyt.com/du/books/images/${
-          props.book.isbns[0]
-            ? props.book.isbns[0].isbn13
-            : props.book.book_details[0].primary_isbn13
+          props.book!.isbns[0]
+            ? props.book!.isbns[0].isbn13
+            : props.book!.book_details[0].primary_isbn13
         }.jpg`,
       }}
       style={styles.image}
@@ -28,13 +28,13 @@ export default (props: IProps) => (
     />
     <View style={styles.contentContainer}>
       <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-        {props.book.book_details[0].title}
+        {props.book!.book_details[0].title}
       </Text>
       <Text style={{ color: "grey", fontSize: 12 }}>
-        by {props.book.book_details[0].author}
+        by {props.book!.book_details[0].author}
       </Text>
       <Text style={{ marginTop: 10 }}>
-        {props.book.book_details[0].description}
+        {props.book!.book_details[0].description}
       </Text>
     </View>
   </TouchableOpacity>
@@ -68,3 +68,22 @@ const styles = StyleSheet.create({
     marginTop: 200,
   },
 })
+
+BookItem.defaultProps = {
+  book: {
+    amazon_product_url:
+      "https://www.amazon.com/Full-Package-Lauren-Blakely-ebook/dp/B01MT5HMRV?tag=NYTBS-20",
+    isbns: [],
+    book_details: [
+      {
+        author: "book_author",
+        description: "book_description",
+        primary_isbn13: "9780385341004",
+        publisher: "book_publisher",
+        title: "book_title",
+      },
+    ],
+  },
+}
+
+export default BookItem
