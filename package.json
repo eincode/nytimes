@@ -32,6 +32,7 @@
     "metro-react-native-babel-preset": "^0.51.1",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.7.0",
+    "react-native-dotenv": "^0.2.0",
     "react-native-typescript-transformer": "^1.2.11",
     "react-test-renderer": "16.6.3",
     "ts-jest": "^23.10.5",

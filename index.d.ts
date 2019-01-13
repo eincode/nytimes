@@ -26,6 +26,7 @@ interface Multimedia {
 }
 
 declare module "*.png"
+declare module "react-native-dotenv"
 
 interface BookDetail {
   title: string

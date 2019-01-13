@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios"
+import { API_KEY } from "react-native-dotenv"
 
 class API {
   public client: AxiosInstance
@@ -8,8 +9,7 @@ class API {
       baseURL: "https://api.nytimes.com/svc",
     })
     this.client.defaults.params = {}
-    this.client.defaults.params["api-key"] =
-      "b9f91d369ff59547cd47b931d8cbc56b:0:74623931"
+    this.client.defaults.params["api-key"] = API_KEY
   }
 }
 
