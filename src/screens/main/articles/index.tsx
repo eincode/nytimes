@@ -25,7 +25,7 @@ import IC_ARTICLE_ACTIVE from "../../../../assets/ic_article_active.png"
 import IC_ARTICLE_INACTIVE from "../../../../assets/ic_article_inactive.png"
 
 interface IProps {
-  navigation: NavigationScreenProp<any, any>
+  navigation?: NavigationScreenProp<any, any>
 }
 
 interface IState {
@@ -36,7 +36,7 @@ interface IState {
   sortMethod: SortMethod
 }
 
-enum SortMethod {
+export enum SortMethod {
   DEFAULT = "default",
   NEWEST = "newest",
   OLDEST = "oldest",
@@ -125,7 +125,7 @@ export default class Articles extends Component<IProps, IState> {
               <ArticleItem
                 article={item}
                 onPress={() =>
-                  this.props.navigation.navigate("DetailArticle", {
+                  this.props.navigation!.navigate("DetailArticle", {
                     url: item.web_url,
                   })
                 }

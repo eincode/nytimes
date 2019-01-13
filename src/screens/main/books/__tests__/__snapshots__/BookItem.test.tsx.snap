@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book item component renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 5,
+      "elevation": 5,
+      "flex": 1,
+      "margin": 10,
+      "maxWidth": 337.5,
+      "minHeight": 200,
+      "opacity": 1,
+      "padding": 10,
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 1,
+      "shadowRadius": 5,
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "https://s1.nyt.com/du/books/images/9780385341004.jpg",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "position": "absolute",
+        "width": 337.5,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "marginTop": 200,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 15,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      book_title
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "grey",
+          "fontSize": 12,
+        }
+      }
+    >
+      by 
+      book_author
+    </Text>
+    <Text
+      style={
+        Object {
+          "marginTop": 10,
+        }
+      }
+    >
+      book_description
+    </Text>
+  </View>
+</View>
+`;

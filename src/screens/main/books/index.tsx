@@ -23,7 +23,7 @@ interface IState {
   isModalVisible: boolean
 }
 
-enum ListName {
+export enum ListName {
   HARD = "hardcover-fiction",
   EBOOK = "e-book-fiction",
 }

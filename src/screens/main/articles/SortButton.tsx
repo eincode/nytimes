@@ -12,7 +12,7 @@ import IC_SORT from "../../../../assets/ic_sort.png"
 import metrics from "../../../config/metrics"
 
 interface IProps extends TouchableOpacityProps {
-  style: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>
 }
 
 export default (props: IProps) => (

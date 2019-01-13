@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search bar component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFF",
+      "borderColor": "#EFEFEF",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 60,
+      "padding": 10,
+      "width": 750,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/ic_search.png",
+      }
+    }
+    style={
+      Object {
+        "height": 30,
+        "marginHorizontal": 5,
+        "width": 30,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
