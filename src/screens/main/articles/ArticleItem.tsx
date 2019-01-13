@@ -17,9 +17,7 @@ const ArticleItem: StatelessComponent<IProps> = (props: IProps) => (
   <TouchableOpacity style={styles.container} {...props}>
     <ImageBackground
       source={{
-        uri: props.article!.multimedia[0]
-          ? props.article!.multimedia[0].url
-          : "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+        uri: props.article!.multimedia[0].url,
       }}
       style={styles.image}
       resizeMode={"cover"}
