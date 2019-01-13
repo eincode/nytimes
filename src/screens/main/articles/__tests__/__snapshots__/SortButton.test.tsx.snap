@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort button component renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(43, 152, 240)",
+      "borderRadius": 25,
+      "elevation": 10,
+      "height": 50,
+      "justifyContent": "center",
+      "opacity": 1,
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 1,
+      "shadowRadius": 5,
+      "width": 50,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/ic_sort.png",
+      }
+    }
+    style={
+      Object {
+        "height": 30,
+        "width": 30,
+      }
+    }
+  />
+</View>
+`;

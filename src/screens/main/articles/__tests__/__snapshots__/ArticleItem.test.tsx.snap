@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort button component renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 5,
+      "elevation": 5,
+      "marginVertical": 5,
+      "minHeight": 220,
+      "opacity": 1,
+      "padding": 10,
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 1,
+      "shadowRadius": 5,
+      "width": 712.5,
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "borderTopLeftRadius": 5,
+        "borderTopRightRadius": 5,
+        "height": 200,
+        "overflow": "hidden",
+        "position": "absolute",
+        "width": 712.5,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 200,
+            "width": 712.5,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      style={
+        Object {
+          "bottom": 10,
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "left": 10,
+          "position": "absolute",
+        }
+      }
+    >
+      article_headline
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": 200,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "grey",
+          "fontSize": 12,
+          "marginBottom": 5,
+        }
+      }
+    >
+      article_source
+    </Text>
+    <Text>
+      article_snippet
+    </Text>
+  </View>
+</View>
+`;

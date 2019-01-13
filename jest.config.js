@@ -15,10 +15,6 @@ module.exports = {
   // This is the only part which you can keep
   // from the above linked tutorial's config:
   cacheDirectory: ".jest/cache",
-  setupFiles: ["./src/__tests__/setup.js"],
-  testPathIgnorePatterns: [
-    "./src/__tests__/setup.js",
-    "\\.snap$",
-    "<rootDir>/node_modules/"
-  ]
+  setupFiles: ["./setup-test.js"],
+  testPathIgnorePatterns: ["./setup-test.js", "\\.snap$", "<rootDir>/node_modules/"]
 }
